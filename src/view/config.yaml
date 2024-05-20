@@ -1,0 +1,8 @@
+page_icon: 'src\view\images\sunmatch-icon.ico'
+df_city_states: 'src\model\db\city-states.xlsx'
+
+cadastro:
+  page_title: 'SunMatch | Cadastro de instaladores' 
+  
+
+    
