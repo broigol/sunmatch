@@ -52,6 +52,7 @@ cidade = st.selectbox('Cidade', cidades_filtradas)
 
 if st.button('Cadastrar'):    
     try:
+
         # Adicionando um registro
         insta.adicionar_registro(
             cnpj

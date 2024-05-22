@@ -18,7 +18,7 @@ class GerenciadorBanco:
         self.engine = engine #create_engine(f'sqlite:///sunmatch')
         self.session = session #sessionmaker(bind=self.engine)()
         
-    def adicionar_registro(self, document, razao_social, telefone, email, estado, cidade, logo=''):
+    def adicionar_registro(self, document, razao_social, telefone, email, estado, cidade):
         registro = Instaladores(
             document=document,
             razao_social=razao_social,
@@ -26,7 +26,6 @@ class GerenciadorBanco:
             email=email,
             estado=estado,
             cidade=cidade
-            #logo=logo
         )
         self.session.add(registro)
         self.session.commit()

@@ -4,5 +4,6 @@ df_city_states: 'src\model\db\city-states.xlsx'
 cadastro:
   page_title: 'SunMatch | Cadastro de instaladores' 
   
-
-    
+home:
+  page_title: 'SunMatch'
+  header_image: 'src\view\images\sunmatch-logo-horizon.png'
