@@ -35,7 +35,10 @@ df_instaladores = pd.read_sql_query(
 )
 
 # Título da página
-st.title('Filtro de Instaladores')
+st.title('Instaladores 🔧')
+st.subheader(body='', divider='gray')
+
+st.text("Utilize os campos abaixo, para encontrar instaladores em sua região.")
 
 # Seleção de estado com pesquisa
 estado = st.selectbox('Selecione o Estado', options=df_cidades['Estado'].unique(), help='Pesquise e selecione o estado')
@@ -50,7 +53,7 @@ cidade = st.selectbox('Selecione a Cidade', options=cidades_filtradas, help='Pes
 df_filtrado = df_instaladores[(df_instaladores['estado'] == estado) & (df_instaladores['cidade'] == cidade)]
 
 # Mostrar os instaladores filtrados como blocos de anúncios
-st.subheader('Instaladores Disponíveis')
+#st.subheader('Instaladores Disponíveis')
 
 # Estilo personalizado para os blocos de anúncios
 st.markdown("""
@@ -75,15 +78,16 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # Exibir os instaladores filtrados como blocos de anúncios em 3 colunas
-cols = st.columns(3)
+cols = st.columns(2)
 for index, row in df_filtrado.iterrows():
-    col_index = index % 3
+    col_index = index % 2
     with cols[col_index]:
         st.markdown(f"""
             <div class="instalador-bloco">
-                <div class="instalador-titulo">{row['document']}</div>
-                <div class="instalador-contato">Contato: {row['razao_social']}</div>
-                <div class="instalador-localizacao">Localização: {row['telefone']}, {row['email']}</div>
-                <div class="instalador-localizacao">Localização: {row['cidade']}, {row['estado']}</div>
+                <div class="instalador-titulo">{row['razao_social']}</div>                
+                <div class="instalador-contato">Doc.: {row['document']}</div>                
+                <div class="instalador-localizacao"><b>Telefone</b>: {row['telefone']}</div>
+                <div class="instalador-localizacao"><b>E-mail</b>: {row['email']}</div>                   
+                <div class="instalador-localizacao"><b>Localização</b>: {row['cidade']}, {row['estado']}</div>
             </div>
             """, unsafe_allow_html=True)

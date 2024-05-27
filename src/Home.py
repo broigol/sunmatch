@@ -17,7 +17,6 @@ st.set_page_config(
     page_icon = config['page_icon'],
     layout="centered"
 
-    #layout="wide"
 )
 
 # Carregar imagem
@@ -25,42 +24,49 @@ image_path = config['home']['header_image']
 st.image(image_path, use_column_width=True)
 
 # Centralizar o texto abaixo da imagem
-st.markdown("<h1 style='text-align: center;'>Bem-vindo à Minha Aplicação</h1>", unsafe_allow_html=True)
+st.markdown("""
+    
+    <h3 style='text-align: left;'>Bem-vindo ao SunMatch! Conectando donos e instaladores de sistemas solares.</h3>
+    </br>
+    <p>
+        Clique em "Cadastro" para se cadastrar como instalador e, se procura o instalador mais próximo, clique em "Anúncios".
+    </p>
+""", unsafe_allow_html=True)
 
 # Adicionar espaço entre o texto e os botões
 st.write("")
 
 # Criação das colunas para centralizar os botões
 col1, col2 = st.columns([1, 2])
-
-with col1:
-    st.button("Botão 1")
-
-with col2:
-    st.button("Botão 2")
-
-'''
-# Custom CSS para centralizar os botões
+    
+# Estilo do botão
 st.markdown("""
     <style>
-    .button-container {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
+    .btn-custom {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #000000;
+        background-color: #fbb515;
+        border: none;
+        border-radius: 5px;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 0.3s;
     }
-    .stButton > button {
-        width: 200px;
+    .btn-custom:hover {
+        background-color: #1b69b3;
+        color: #fbb515;
     }
-    </style>
-    """, unsafe_allow_html=True)
+</style>
+""", unsafe_allow_html=True)
 
-# Criação do container para centralizar os botões
-st.markdown('<div class="button-container">', unsafe_allow_html=True)
-'''
+with col1:
+    # Botão HTML
+    st.markdown('<a href="/Cadastro" target="_self" class="btn-custom">Cadastro</a>', unsafe_allow_html=True)
 
-# Opcional: Ações dos botões
-if st.button("Botão 1"):
-    st.write("Você clicou no Botão 1")
-
-if st.button("Botão 2"):
-    st.write("Você clicou no Botão 2")
+with col2:
+    # Botão HTML
+    st.markdown('<a href="/Anúncios" target="_self" class="btn-custom">Anúncios</a>', unsafe_allow_html=True)

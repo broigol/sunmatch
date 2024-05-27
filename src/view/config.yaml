@@ -6,4 +6,6 @@ cadastro:
   
 home:
   page_title: 'SunMatch'
-  header_image: 'src\view\images\sunmatch-logo-horizon.png'
+  header_image: 'src\view\images\sunmatch-logo-horizon_slim.png'
+  href_btn_anuncios: 'http://localhost:8501/Anúncios'
+  href_btn_cadastro: 'http://localhost:8501/Cadastro'
